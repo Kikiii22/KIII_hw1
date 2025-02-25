@@ -1,0 +1,32 @@
+1. π Title(σ Name='Sci-Fi'(Movies⨝Movies.Genre_ID=Genres.Genre_ID Genres))
+2. π Firstname,Lastname(σ Runtime>150 ∨ Budget>200000000(Persons ⨝ Persons.Person_ID=PersonsMovies.Person_ID PersonsMovies ⨝  Movies.Movie_ID=PersonsMovies.Movie_ID Movies ))
+
+3. π Title(σ Firstname='James'∧ Lastname='Cameron' ∧(Runtime>180∨Runtime<120)(Movies ⨝ Movies.Movie_ID=PersonsMovies.Movie_ID PersonsMovies ⨝ PersonsMovies.Person_ID=Persons.Person_ID Persons))
+
+4.S=π Movie_ID(Movies)
+T=π SequelOf(σSequelOf!=null(Movies))
+R=S ⨝ Movies.Movie_ID=Movies.SequelOf T
+MoviesWithSequels=π Movies.Movie_ID(R)
+Moviess=Movies⨝MoviesWithSequels
+MoviesTitle=πTitle(Moviess)
+Action=πTitle(σName='Action'(Movies⨝Movies.Genre_ID=Genres.Genre_ID Genres))
+Action∪MoviesTitle
+
+5.S=π Movie_ID(Movies)
+T=π SequelOf(σSequelOf!=null(Movies))
+R=S ⨝ Movies.Movie_ID=Movies.SequelOf T
+MoviesWithSequels=π Movies.Movie_ID(R)
+Moviess=Movies⨝MoviesWithSequels
+MoviesTitle=πTitle(Moviess)
+Action=πTitle(σName='Action'(Movies⨝Movies.Genre_ID=Genres.Genre_ID Genres))
+Action∩MoviesTitle
+
+6.S=π Movie_ID(Movies)
+T=π SequelOf(σSequelOf!=null(Movies))
+R=S ⨝ Movies.Movie_ID=Movies.SequelOf T
+MoviesWithSequels=π Movies.Movie_ID(R)
+Moviess=Movies⨝MoviesWithSequels
+Rezultat=πTitle(Movies-Moviess)
+Rezultat
+
+
