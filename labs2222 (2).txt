@@ -1,3 +1,4 @@
+Ova e prva laboratoriska
 1. π Title(σ Name='Sci-Fi'(Movies⨝Movies.Genre_ID=Genres.Genre_ID Genres))
 2. π Firstname,Lastname(σ Runtime>150 ∨ Budget>200000000(Persons ⨝ Persons.Person_ID=PersonsMovies.Person_ID PersonsMovies ⨝  Movies.Movie_ID=PersonsMovies.Movie_ID Movies ))
 
@@ -28,5 +29,6 @@ MoviesWithSequels=π Movies.Movie_ID(R)
 Moviess=Movies⨝MoviesWithSequels
 Rezultat=πTitle(Movies-Moviess)
 Rezultat
+
 
 
